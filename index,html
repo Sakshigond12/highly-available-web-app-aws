@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Highly Available Web Application</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    text-align: center;
+    padding-top: 100px;
+    color: white;
+}
+.container {
+    background: rgba(0,0,0,0.5);
+    padding: 40px;
+    border-radius: 10px;
+    display: inline-block;
+}
+h1 {
+    font-size: 40px;
+}
+p {
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Highly Available Web Application</h1>
+
+<p>This web application is deployed using AWS services.</p>
+
+<p><b>Instance ID:</b></p>
+
+<p>
+<script>
+fetch("http://169.254.169.254/latest/meta-data/instance-id")
+.then(response => response.text())
+.then(data => document.write(data));
+</script>
+</p>
+
+<p>Powered by EC2, Auto Scaling & Load Balancer</p>
+
+</div>
+
+</body>
+</html>
