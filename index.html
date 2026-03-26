@@ -1,3 +1,17 @@
+#!/bin/bash
+
+# Update system
+apt update -y
+
+# Install Apache
+apt install apache2 -y
+
+# Start Apache
+systemctl start apache2
+systemctl enable apache2
+
+# Create HTML page
+cat <<EOF > /var/www/html/index.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +59,6 @@ fetch("http://169.254.169.254/latest/meta-data/instance-id")
 <p>Powered by EC2, Auto Scaling & Load Balancer</p>
 
 </div>
-
 </body>
 </html>
+EOF
